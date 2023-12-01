@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@700&family=Montserrat:wght@700&family=Poppins:wght@400;600&display=swap');
+
+:root {
+    --moon: #0366d8;
+    --sun: #ffd000;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: rgb(17, 17, 17);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 0fr);
+    gap: 5px;
+    justify-items: center;
+}
+
+.left-card,
+.right-card {
+    transition: 0.5s;
+    background-color: #fbfaf5;
+    padding: 20px;
+    width: 300px;
+}
+
+button {
+    /* background-color: rgb(255, 208, 0); */
+    background-color: var(--moon);
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-top: 45px;
+    width: 100%;
+    color: white;
+}
+
+button:hover {
+    /* background-color: rgb(255, 208, 0, 0.8); */
+    background-color: var(--moon);
+    transform: scale(1);
+}
+
+.left-card {
+    border-radius: 10px 0 0 10%;
+}
+
+.left-card:hover {
+    /*3d*/
+ transform: skewX(10deg);
+ transform: perspective(1000px) rotateY(10deg);
+}
+
+.right-card:hover {
+    /*3d*/
+ transform: skewX(-10deg);
+ transform: perspective(1000px) rotateY(-10deg);
+}
+.right-card {
+    border-radius: 0 10% 10px 0;
+}
+
+.l-text-area {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.l-text-area #day {
+    position: relative;
+    font-weight: bold;
+    font-size: 2rem;
+    /* border-bottom: 5px solid rgb(255, 208, 0); */
+    border-bottom: 5px solid var(--moon); ;
+    width: fit-content;
+    bottom: 1rem;
+}
+
+.l-text-area #l-card-header p {
+    position: relative;
+    bottom: 2rem;
+    margin: 0;
+    font-weight: 300;
+    font-size: 15px;
+
+}
+
+.location {
+    display: flex;
+    align-items: center;
+}
+
+#map-pin {
+    position: relative;
+    bottom: 2rem;
+    width: 15px;
+    margin-right: 3px;
+}
+
+#temp-icon {
+    width: 50px;
+    margin-top: 2rem;
+    position: relative;
+    bottom: 1rem;
+    transition: transform 0.3s, margin-left 0.3s;
+    -webkit-user-drag: none;
+}
+
+#temp {
+    font-weight: bolder;
+    font-size: 3rem;
+    width: fit-content;
+    margin: 0;
+}
+
+#temp-description {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+#temp-icon,
+#map-pin {
+    user-select: none;
+}
+
+#temp-icon:hover {
+    animation: spin 2s forwards;
+}
+
+@keyframes spin {
+    0% {
+      transform: scale(1) rotate(0deg);
+      margin-left: 0;
+    }
+    100% {
+      transform: scale(1) rotate(360deg);
+      margin-left: 2rem;
+  }
+}
+
+@keyframes spinBack {
+    0% {
+      transform: scale(1) rotate(360deg);
+      margin-left: 2rem;
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+      margin-left: 0;
+    }
+  }
+  
+  #temp-icon {
+    transition: transform 0.3s, margin-left 0.3s;
+  }
+  
+  #temp-icon:hover {
+    animation: spin 2s forwards;
+  }
+  
+  #temp-icon:not(:hover) {
+    animation: spinBack 1s forwards;
+  }
